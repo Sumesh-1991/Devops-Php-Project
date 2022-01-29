@@ -12,7 +12,13 @@ pipeline {
                 sh "docker build . -t sumesh/my-php-website"
             }
         }
-        
+        stage('Docker Push'){
+        steps{
+        withDockerRegistry(credentialsId: 'docker-hub', url: 'https://hub.docker.com/repository/docker/sumesh1991/my-php-website') {
+                              sh "docker push sumesh/my-php-website:latest"
+                 }
+             }
+        }
         stage('Install Python 3') {
             steps {
                ansiblePlaybook installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'python3-playbook.yml'
