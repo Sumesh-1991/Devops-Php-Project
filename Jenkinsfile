@@ -15,7 +15,7 @@ pipeline {
         
         stage('Install Python 3') {
             steps {
-               ansiblePlaybook  credentialsId: 'test-server', installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'python3-playbook.yml'
+               ansiblePlaybook installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'python3-playbook.yml'
             }
         }
          stage('Install docker and its dependencies and run contianer') {
