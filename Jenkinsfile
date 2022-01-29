@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Docker Build'){
             steps{
-                sh "docker build . -t sumesh/my-php-website"
+                sh "docker build . -t sumesh/sumeshwebapp:my-php-website"
             }
         }
         stage('DockerHub Push'){
