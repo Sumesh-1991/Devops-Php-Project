@@ -12,16 +12,7 @@ pipeline {
                 sh "docker build . -t sumesh/my-php-website"
             }
         }
-        stage('DockerHub Push'){
-            steps{
-                
-                withCredentials([$class: 'UsernamePasswordMultiBinding'(credentialsId: 'sumesh1991', variable: 'docker')]) {
-                      sh "docker login -u sumesh1991 -p ${docker}"
-                }
-                
-                sh "docker push sumesh/my-php-website "
-            }
-        }
+        
         stage('Install Python 3') {
             steps {
                ansiblePlaybook installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'python3-playbook.yml'
