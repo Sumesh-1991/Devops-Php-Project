@@ -12,12 +12,15 @@ pipeline {
                 sh "docker build . -t sumesh/my-php-website"
             }
         }
-        stage('Docker Push'){
-        steps{
-        withDockerRegistry(credentialsId: 'docker-hub', url: 'https://hub.docker.com/repository/docker/sumesh1991/') {
-                              sh "docker push sumesh/my-php-website:latest"
-                 }
-             }
+        stage('DockerHub Push'){
+            steps{
+                
+                withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerpwd')]) {
+                      sh "docker login -u sumesh1991 -p ${dockerpwd}"
+                }
+                
+                sh "docker push sumesh/my-php-website "
+            }
         }
         stage('Install Python 3') {
             steps {
