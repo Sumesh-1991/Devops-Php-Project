@@ -15,7 +15,7 @@ pipeline {
         stage('DockerHub Push'){
             steps{
                   sh "docker login -u sumesh1991 -p 6df67116-909d-49e8-9b26-a41788ee0dd3"
-                  sh "docker push sumesh/my-php-website:latest "
+                  sh "docker push sumesh1991/my-php-website:latest "
             }
         }
 
