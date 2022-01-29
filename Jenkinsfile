@@ -15,7 +15,7 @@ pipeline {
         stage('DockerHub Push'){
             steps{
                 
-                withCredentials([string(credentialsId: 'sumesh1991', variable: 'docker')]) {
+                withCredentials([usernamePassword(credentialsId: 'sumesh1991', variable: 'docker')]) {
                       sh "docker login -u sumesh1991 -p ${docker}"
                 }
                 
