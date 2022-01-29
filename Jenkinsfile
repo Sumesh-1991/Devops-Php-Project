@@ -14,7 +14,7 @@ pipeline {
         }
         
 
-        }
+        
         stage('Install Python 3') {
             steps {
                ansiblePlaybook  installation: 'ansible', inventory: 'servers.inv', playbook: 'python3-playbook.yml'
