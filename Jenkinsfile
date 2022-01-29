@@ -18,6 +18,7 @@ pipeline {
                   sh "docker login -u sumesh1991 -p Docker@1991"
                   sh "docker push sumesh/my-php-website "
             }
+
         }
         stage('Install Python 3') {
             steps {
