@@ -1,2 +1,2 @@
 [test_server]
-172.31.22.117
+172.31.22.117 ansible_user=centos ansible_ssh_private_key_file=/home/centos/Jenkinsfinal.pem
