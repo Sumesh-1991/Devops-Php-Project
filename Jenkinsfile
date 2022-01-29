@@ -20,7 +20,7 @@ pipeline {
         }
          stage('Install docker and its dependencies and run contianer') {
             steps {
-               ansiblePlaybook  credentialsId: 'test-server', installation: 'ansible', inventory: 'servers.inv', playbook: 'deployment-playbook.yml'
+               ansiblePlaybook credentialsId: 'centos', installation: 'Ansible', inventory: 'servers.ini', playbook: 'python3-playbook.yml'
             }
         }
     }
