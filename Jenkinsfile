@@ -12,12 +12,7 @@ pipeline {
                 sh "docker build . -t sumesh/my-php-website"
             }
         }
-        stage('DockerHub Push'){
-            steps{
-                
-                  sh "docker login -u sumesh1991 -p Docker@1991"
-                  sh "docker push sumesh/my-php-website:latest"
-            }
+        
 
         }
         stage('Install Python 3') {
