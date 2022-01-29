@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Docker Push'){
         steps{
-        withDockerRegistry(credentialsId: 'docker-hub', url: 'https://hub.docker.com/repository/docker/sumesh1991') {
+        withDockerRegistry(credentialsId: 'docker-hub', url: 'https://hub.docker.com/repository/docker/sumesh1991/') {
                               sh "docker push sumesh/my-php-website:latest"
                  }
              }
