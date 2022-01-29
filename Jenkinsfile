@@ -15,10 +15,14 @@ pipeline {
         stage('DockerHub Push'){
             steps{
                 
-                  sh "docker login -u sumesh1991 -p Docker@1991"
-                  sh "docker push sumesh/my-php-website:latest"
+                withCredentials([string(credentialsId: 'docker-hub-cred')]) {
+                      sh "docker login -u sumesh1991 -p 6df67116-909d-49e8-9b26-a41788ee0dd3"
+                }
+                
+                sh "docker push sumesh/my-php-website:latest "
             }
         }
+
 
         stage('Install Python 3') {
             steps {
